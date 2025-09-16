@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Products</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 40px 20px;
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        transition: background 0s ease-in-out;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        }
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .product-card {
+      justify-content:center;
+      background: #111;
+      border-radius: 15px;
+      padding: 20px;
+      width: 100%;
+      max-width: 360px;
+      min-width:260px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      flex: 1 1 240px;
+    }
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        width: 100%;
+        height: 260px;
+    }
+
+    .carousel-container img {
+      min-width:260px;
+      max-width:460px;
+      max-height:260px;
+      min-height:160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 50%;
+    }
+
+    .arrow.left {
+      left: 8px;
+    }
+
+    .arrow.right {
+      right: 8px;
+    }
+
+    .product-name {
+      margin: 10px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .buy-btn {
+      margin-top: 10px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      border: none;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 20px;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(0, 115, 255, 0.4);
+    }
+    .nameheader{
+        text-shadow:0px 0px 5px black;
+    }
+    
+    @media (max-width: 600px) {
+      .product-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1 class="nameheader"> Shoe Store Ph 👞</h1>
+
+<div class="product-grid">
+  <!-- Product 1 -->
+  <div class="product-card" id="productimg1">
+    <div class="carousel-container">
+      <img id="img1" src="/redshoe.jpg" />
+      <button class="arrow left" onclick="changeImage('img1', 'images1', -1)">←</button>
+      <button class="arrow right" onclick="changeImage('img1', 'images1', 1)">→</button>
+    </div>
+    <div class="product-name">Sport Shoes</div>
+    <button class="buy-btn" onclick="requestToBuy('Football')">Request to Buy</button>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card" id="productimg2">
+    <div class="carousel-container">
+      <img id="img2" src="/yellowshoe.jpg" />
+      <button class="arrow left" onclick="changeImage('img2', 'images2', -1)">←</button>
+      <button class="arrow right" onclick="changeImage('img2', 'images2', 1)">→</button>
+    </div>
+    <div class="product-name">Sport Shoes2</div>
+    <button class="buy-btn" onclick="requestToBuy('Basketball')">Request to Buy</button>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card" id="productimg3">
+    <div class="carousel-container">
+      <img id="img3" src="/whiteshoe.jpg" />
+      <button class="arrow left" onclick="changeImage('img3', 'images3', -1)">←</button>
+      <button class="arrow right" onclick="changeImage('img3', 'images3', 1)">→</button>
+    </div>
+    <div class="product-name">Casual Shoes</div>
+    <button class="buy-btn" onclick="requestToBuy('Tennis Set')">Request to Buy</button>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card" id="productimg4">
+    <div class="carousel-container">
+      <img id="img4" src="/homelessshoe.jpg" />
+      <button class="arrow left" onclick="changeImage('img4', 'images4', -1)">←</button>
+      <button class="arrow right" onclick="changeImage('img4', 'images4', 1)">→</button>
+    </div>
+    <div class="product-name">Casual Shoes2</div>
+    <button class="buy-btn" onclick="requestToBuy('Cricket Kit')">Request to Buy</button>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card" id="productimg5">
+    <div class="carousel-container">
+      <img id="img5" src="https://source.unsplash.com/300x160/?soccer" />
+      <button class="arrow left" onclick="changeImage('img5', 'images5', -1)">←</button>
+      <button class="arrow right" onclick="changeImage('img5', 'images5', 1)">→</button>
+    </div>
+    <div class="product-name">Sport Shoes</div>
+    <button class="buy-btn" onclick="requestToBuy('Soccer Ball')">Request to Buy</button>
+  </div>
+</div>
+
+<script>
+  // Image sliders
+  const imageSets = {
+    images1: [
+      "/redshoe.jpg",
+      "/redshoe2.jpg",
+      "/redshoe3.jpg"
+    ],
+    images2: [
+      "/yellowshoe.jpg",
+      "/yellowshoe2.jpg"
+      
+    ],
+    images3: [
+      "/whiteshoe.jpg"
+      
+    ],
+    images4: [
+      "/homelessshoe.jpg"
+     
+    ],
+    images5: [
+      "https://source.unsplash.com/300x160/?soccer",
+      "https://source.unsplash.com/300x160/?soccer-ball",
+      "https://source.unsplash.com/300x160/?fifa"
+    ]
+  };
+
+  const indexes = {
+    images1: 0,
+    images2: 0,
+    images3: 0,
+    images4: 0,
+    images5: 0
+  };
+
+  function changeImage(imgId, arrayName, direction) {
+    const arr = imageSets[arrayName];
+    if (!arr) return;
+    indexes[arrayName] = (indexes[arrayName] + direction + arr.length) % arr.length;
+    document.getElementById(imgId).src = arr[indexes[arrayName]];
+  }
+
+  // Get URL param helper
+  function getQueryParam(param) {
+    return new URLSearchParams(window.location.search).get(param);
+  }
+
+  // Main request-to-buy logic using Formspree format
+  function requestToBuy(productName) {
+    const name = getQueryParam('name') || 'No name';
+    const email = getQueryParam('email');
+    const location = getQueryParam('location') || 'Unknown location';
+
+    if (!email) {
+      alert("Missing email in URL. Add ?email=your@email.com");
+      return;
+    }
+
+    const form = document.createElement('form');
+    form.action = "https://formspree.io/f/xgvlbqkl";
+    form.method = "POST";
+    form.style.display = "none";
+
+    const emailInput = document.createElement('input');
+    emailInput.name = "email";
+    emailInput.value = email;
+    emailInput.type = "email";
+    form.appendChild(emailInput);
+
+    const messageInput = document.createElement('textarea');
+    messageInput.name = "message";
+    messageInput.textContent = `Product: ${productName}\nName: ${name}\nLocation: ${location}`;
+    form.appendChild(messageInput);
+
+    document.body.appendChild(form);
+    form.submit();
+  }
+
+   const body = document.body;
+
+  const hoverBackgrounds = {
+    productimg1: "url('https://wallpapers.com/images/hd/4k-basketball-court-yqylasfcu64boyol.jpg')",
+    productimg2: "url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d')",
+    productimg3: "url('https://images.unsplash.com/photo-1517649763962-0c623066013b')",
+    productimg4: "url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf')",
+    productimg5: "url('https://images.unsplash.com/photo-1508780709619-79562169bc64')"
+  };
+
+  Object.keys(hoverBackgrounds).forEach(productId => {
+    const product = document.getElementById(productId);
+
+    product.addEventListener('mouseenter', () => {
+      body.style.background = `${hoverBackgrounds[productId]}`;
+      body.style.backgroundSize = "cover";
+      body.style.backgroundPosition = "center";
+      body.style.backgroundRepeat = "no-repeat";
+      body.style.backgroundAttachment = "fixed"; 
+
+    });
+
+    product.addEventListener('mouseleave', () => {
+      // Reset to your default gradient background
+      body.style.background = "linear-gradient(to right, #0f2027, #203a43, #2c5364)";
+    });
+  });
+</script>
+
+</body>
+</html>
