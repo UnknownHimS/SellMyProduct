@@ -11,19 +11,15 @@
     }
 
     body {
-        margin: 0;
-        padding: 40px 20px;
-        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #fff;
-        
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        
-
-        }
-
+      margin: 0;
+      padding: 40px 20px;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
     h1 {
       text-align: center;
@@ -48,17 +44,18 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       position: relative;
       flex: 1 1 240px;
+      color: white;
     }
 
     .carousel-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        width: 100%;
-        height: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      width: 100%;
+      height: 260px;
     }
 
     .carousel-container img {
@@ -97,6 +94,11 @@
       text-align: center;
       font-weight: bold;
       font-size: 1.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: white;
     }
 
     .buy-btn {
@@ -116,14 +118,51 @@
       transform: scale(1.03);
       box-shadow: 0 6px 12px rgba(0, 115, 255, 0.4);
     }
-    .nameheader{
-        text-shadow:0px 0px 5px black;
+
+    .nameheader {
+      text-shadow:0px 0px 5px black;
     }
-    
+
     @media (max-width: 600px) {
       .product-card {
         max-width: 100%;
       }
+    }
+
+    /* Info button styling */
+    .info-btn {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .info-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Info panel styling */
+    .product-info {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      color: #333;
+      padding: 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      transition: all 0.3s ease;
+      color: #222;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -135,56 +174,91 @@
   <!-- Product 1 -->
   <div class="product-card" id="productimg1">
     <div class="carousel-container">
-      <img id="img1" src="redshoe.jpg" />
+      <img id="img1" src="redshoe.jpg" alt="Sport Shoes"/>
       <button class="arrow left" onclick="changeImage('img1', 'images1', -1)">←</button>
       <button class="arrow right" onclick="changeImage('img1', 'images1', 1)">→</button>
     </div>
-    <div class="product-name">Sport Shoes</div>
-    <button class="buy-btn" onclick="requestToBuy('Football')">Request to Buy</button>
+    <div class="product-name">
+      Sport Shoes
+      <button class="info-btn" onclick="toggleInfo(this)">Info</button>
+    </div>
+    <div class="product-info hidden">
+      <p><strong>Details:</strong> Lightweight, breathable material. Perfect for running and outdoor activities.</p>
+      <p><strong>Available Sizes:</strong> 7, 8, 9, 10, 11</p>
+    </div>
+    <button class="buy-btn" onclick="requestToBuy('Sport Shoes')">Request to Buy</button>
   </div>
 
   <!-- Product 2 -->
   <div class="product-card" id="productimg2">
     <div class="carousel-container">
-      <img id="img2" src="yellowshoe.jpg" />
+      <img id="img2" src="yellowshoe.jpg" alt="Sport Shoes2"/>
       <button class="arrow left" onclick="changeImage('img2', 'images2', -1)">←</button>
       <button class="arrow right" onclick="changeImage('img2', 'images2', 1)">→</button>
     </div>
-    <div class="product-name">Sport Shoes2</div>
-    <button class="buy-btn" onclick="requestToBuy('Basketball')">Request to Buy</button>
+    <div class="product-name">
+      Sport Shoes2
+      <button class="info-btn" onclick="toggleInfo(this)">Info</button>
+    </div>
+    <div class="product-info hidden">
+      <p><strong>Details:</strong> Durable with excellent grip. Great for basketball and sports.</p>
+      <p><strong>Available Sizes:</strong> 6, 7, 8, 9, 10</p>
+    </div>
+    <button class="buy-btn" onclick="requestToBuy('Sport Shoes2')">Request to Buy</button>
   </div>
 
   <!-- Product 3 -->
   <div class="product-card" id="productimg3">
     <div class="carousel-container">
-      <img id="img3" src="whiteshoe.jpg" />
+      <img id="img3" src="whiteshoe.jpg" alt="Casual Shoes"/>
       <button class="arrow left" onclick="changeImage('img3', 'images3', -1)">←</button>
       <button class="arrow right" onclick="changeImage('img3', 'images3', 1)">→</button>
     </div>
-    <div class="product-name">Casual Shoes</div>
-    <button class="buy-btn" onclick="requestToBuy('Tennis Set')">Request to Buy</button>
+    <div class="product-name">
+      Casual Shoes
+      <button class="info-btn" onclick="toggleInfo(this)">Info</button>
+    </div>
+    <div class="product-info hidden">
+      <p><strong>Details:</strong> Stylish and comfortable for everyday wear.</p>
+      <p><strong>Available Sizes:</strong> 8, 9, 10, 11, 12</p>
+    </div>
+    <button class="buy-btn" onclick="requestToBuy('Casual Shoes')">Request to Buy</button>
   </div>
 
   <!-- Product 4 -->
   <div class="product-card" id="productimg4">
     <div class="carousel-container">
-      <img id="img4" src="homelessshoe.jpg" />
+      <img id="img4" src="homelessshoe.jpg" alt="Casual Shoes2"/>
       <button class="arrow left" onclick="changeImage('img4', 'images4', -1)">←</button>
       <button class="arrow right" onclick="changeImage('img4', 'images4', 1)">→</button>
     </div>
-    <div class="product-name">Casual Shoes2</div>
-    <button class="buy-btn" onclick="requestToBuy('Cricket Kit')">Request to Buy</button>
+    <div class="product-name">
+      Casual Shoes2
+      <button class="info-btn" onclick="toggleInfo(this)">Info</button>
+    </div>
+    <div class="product-info hidden">
+      <p><strong>Details:</strong> Durable and eco-friendly materials.</p>
+      <p><strong>Available Sizes:</strong> 7, 8, 9</p>
+    </div>
+    <button class="buy-btn" onclick="requestToBuy('Casual Shoes2')">Request to Buy</button>
   </div>
 
   <!-- Product 5 -->
   <div class="product-card" id="productimg5">
     <div class="carousel-container">
-      <img id="img5" src="whiteshopart2.jpg" />
+      <img id="img5" src="whiteshopart2.jpg" alt="Casual Shoes3"/>
       <button class="arrow left" onclick="changeImage('img5', 'images5', -1)">←</button>
       <button class="arrow right" onclick="changeImage('img5', 'images5', 1)">→</button>
     </div>
-    <div class="product-name">Casual Shoes3</div>
-    <button class="buy-btn" onclick="requestToBuy('Soccer Ball')">Request to Buy</button>
+    <div class="product-name">
+      Casual Shoes3
+      <button class="info-btn" onclick="toggleInfo(this)">Info</button>
+    </div>
+    <div class="product-info hidden">
+      <p><strong>Details:</strong> Modern design with breathable fabric.</p>
+      <p><strong>Available Sizes:</strong> 8, 9, 10</p>
+    </div>
+    <button class="buy-btn" onclick="requestToBuy('Casual Shoes3')">Request to Buy</button>
   </div>
 </div>
 
@@ -226,6 +300,12 @@
     if (!arr) return;
     indexes[arrayName] = (indexes[arrayName] + direction + arr.length) % arr.length;
     document.getElementById(imgId).src = arr[indexes[arrayName]];
+  }
+
+  // Toggle product info panel visibility
+  function toggleInfo(button) {
+    const infoBox = button.parentElement.nextElementSibling;
+    infoBox.classList.toggle('hidden');
   }
 
   // Get URL param helper
@@ -295,16 +375,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
