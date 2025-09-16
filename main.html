@@ -17,7 +17,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
       background-size: cover;
-      background-position: center;
+      background-attachment:fixed;
       background-repeat: no-repeat;
     }
 
@@ -360,7 +360,7 @@
   function cycleBackgroundImage() {
     body.style.background = backgroundImages[bgIndex];
     body.style.backgroundSize = "cover";
-    body.style.backgroundPosition = "center";
+    body.style.backgroundAttachment= "fixed";
     body.style.backgroundRepeat = "no-repeat";
  
 
@@ -375,4 +375,5 @@
 
 </body>
 </html>
+
 
