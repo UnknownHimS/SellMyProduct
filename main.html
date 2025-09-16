@@ -200,16 +200,13 @@
     images2: [
       "yellowshoe.jpg",
       "yellowshoe2.jpg"
-      
     ],
     images3: [
       "whiteshoe.jpg"
-      
     ],
     images4: [
       "homelessshoe.jpg",
       "homelesssho2.jpg"
-     
     ],
     images5: [
       "whiteshopart2.jpg"
@@ -267,37 +264,38 @@
     form.submit();
   }
 
-   const body = document.body;
+  // --- Background image auto-cycling ---
+  const body = document.body;
 
-  const hoverBackgrounds = {
-    productimg1: "url('https://wallpapers.com/images/hd/4k-basketball-court-yqylasfcu64boyol.jpg')",
-    productimg2: "url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d')",
-    productimg3: "url('https://images.unsplash.com/photo-1517649763962-0c623066013b')",
-    productimg4: "url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf')",
-    productimg5: "url('https://images.unsplash.com/photo-1508780709619-79562169bc64')"
-  };
+  const backgroundImages = [
+    "url('https://wallpapers.com/images/hd/4k-basketball-court-yqylasfcu64boyol.jpg')",
+    "url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d')",
+    "url('https://images.unsplash.com/photo-1517649763962-0c623066013b')",
+    "url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf')",
+    "url('https://images.unsplash.com/photo-1508780709619-79562169bc64')"
+  ];
 
-  Object.keys(hoverBackgrounds).forEach(productId => {
-    const product = document.getElementById(productId);
+  let bgIndex = 0;
 
-    product.addEventListener('mouseenter', () => {
-      body.style.background = `${hoverBackgrounds[productId]}`;
-      body.style.backgroundSize = "cover";
-      body.style.backgroundPosition = "center";
-      body.style.backgroundRepeat = "no-repeat";
-      body.style.backgroundAttachment = "fixed"; 
+  function cycleBackgroundImage() {
+    body.style.background = backgroundImages[bgIndex];
+    body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
+    body.style.backgroundRepeat = "no-repeat";
+    body.style.backgroundAttachment = "fixed";
 
-    });
+    bgIndex = (bgIndex + 1) % backgroundImages.length;
+  }
 
-    product.addEventListener('mouseleave', () => {
-      // Reset to your default gradient background
-      body.style.background = "linear-gradient(to right, #0f2027, #203a43, #2c5364)";
-    });
-  });
+  setInterval(cycleBackgroundImage, 5000); // Every 5 seconds
+
+  // Set the first image right away on load
+  cycleBackgroundImage();
 </script>
 
 </body>
 </html>
+
 
 
 
